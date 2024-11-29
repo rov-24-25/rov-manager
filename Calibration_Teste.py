@@ -6,25 +6,47 @@ import struct
 import json
 
 def calibrer_axe(joystick, axe_index, nom_axe):
+    def obtenir_valeur_axe():
+        pygame.event.pump()  # Met à jour l'état du joystick
+        return joystick.get_axis(axe_index)
+
     print(f"Initialisation de l'axe {nom_axe}.")
-    time.sleep(2)
-    valeur_0 = joystick.get_axis(axe_index)
+    print("Ne touchez pas le joystick.")
+    time.sleep(4)
+    valeur_0 = obtenir_valeur_axe()
+    print(valeur_0)
     
     print(f"Mettre le joystick au MAX de l'axe {nom_axe}.")
-    time.sleep(2)
-    valeur_max = joystick.get_axis(axe_index)
+    time.sleep(4)
+    if (nom_axe == 'Y'):
+        valeur_max = -obtenir_valeur_axe()
+    else:
+        valeur_max = obtenir_valeur_axe()
+    print(valeur_max)
     
     print("Ne touchez pas le joystick.")
-    time.sleep(2)
-    valeur_max_0 = joystick.get_axis(axe_index)
+    time.sleep(4)
+    if (nom_axe == 'Y'):
+        valeur_max_0 = -obtenir_valeur_axe()
+    else:
+        valeur_max_0 = obtenir_valeur_axe()
+    print(valeur_max_0)
     
     print(f"Mettre le joystick au MIN de l'axe {nom_axe}.")
-    time.sleep(2)
-    valeur_min = joystick.get_axis(axe_index)
+    time.sleep(4)
+    if (nom_axe == 'Y'):
+        valeur_min = -obtenir_valeur_axe()
+    else:
+        valeur_min = obtenir_valeur_axe()
+    print(valeur_min)
     
     print("Ne touchez pas le joystick.")
-    time.sleep(2)
-    valeur_min_0 = joystick.get_axis(axe_index)
+    time.sleep(4)
+    if (nom_axe == 'Y'):
+        valeur_min_0 = -obtenir_valeur_axe()
+    else:
+        valeur_min_0 = obtenir_valeur_axe()
+    print(valeur_min_0)
     
     return {
         "valeur_initiale": valeur_0,
@@ -57,11 +79,12 @@ def mvt():
 
         # Calibration des axes
         calibration_data = {}
-        
-        axis_x_index = 0
-        axis_y_index = 1
-        axis_z_index = 2
-        axis_rz_index = 3
+
+        valeur_0 = 0
+        valeur_max = 0
+        valeur_max_0 = 0
+        valeur_min = 0
+        valeur_min_0 = 0
 
         calibration_data['axe_x'] = calibrer_axe(joystick, axis_x_index, "X")
         calibration_data['axe_y'] = calibrer_axe(joystick, axis_y_index, "Y")
@@ -74,8 +97,12 @@ def mvt():
         }
 
         # Ouvrir un fichier en mode écriture et écrire les données JSON
-        with open('donnees.json', 'w') as fichier:
-            json.dump(donnees, fichier, indent=4)
+        try:
+            with open('donnees.json', 'w') as fichier:
+                json.dump(donnees, fichier, indent=4)
+            print("enregistre")
+        except:
+            print("eurreru")
 
         print("Les données ont été enregistrées dans 'donnees.json'.")
 
