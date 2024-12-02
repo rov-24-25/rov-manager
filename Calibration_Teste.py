@@ -73,9 +73,9 @@ def mvt():
             if i == 1 : # Axe Y
                 axis_y_index = i  
             if i == 2 : # Axe Z
-                axis_z_index = i
+                axis_rz_index = i
             if i == 3 : # Axe RZ
-                axis_rz_index = i  
+                axis_z_index = i  
 
         # Calibration des axes
         calibration_data = {}
