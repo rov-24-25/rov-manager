@@ -1,0 +1,32 @@
+{
+    "calibration": {
+        "axe_x": {
+            "valeur_initiale": -0.001953125,
+            "valeur_max": 0.999969482421875,
+            "valeur_max_apres": 0.0,
+            "valeur_min": -1.0,
+            "valeur_min_apres": 0.0
+        },
+        "axe_y": {
+            "valeur_initiale": 0.049041748046875,
+            "valeur_max": 1.0,
+            "valeur_max_apres": 0.001953125,
+            "valeur_min": -0.999969482421875,
+            "valeur_min_apres": -0.0216064453125
+        },
+        "axe_z": {
+            "valeur_initiale": -0.0625,
+            "valeur_max": -1.0,
+            "valeur_max_apres": -0.0625,
+            "valeur_min": 0.999969482421875,
+            "valeur_min_apres": -0.0625
+        },
+        "axe_rz": {
+            "valeur_initiale": -0.0078125,
+            "valeur_max": 0.999969482421875,
+            "valeur_max_apres": 0.0,
+            "valeur_min": -1.0,
+            "valeur_min_apres": -0.0078125
+        }
+    }
+}

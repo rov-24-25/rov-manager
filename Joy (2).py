@@ -19,8 +19,10 @@ def mvt():
         
         try:
             while running:
+
                 pygame.event.pump()
                 data = bytearray()
+                
                 for index in axis_indices:
                     axis_value = joystick.get_axis(index)
                     #if abs(axis_value) < 0.1:

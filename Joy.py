@@ -21,6 +21,7 @@ def mvt():
     pygame.init()
     pygame.joystick.init()
     #print(pygame.joystick.get_count())
+    
     if pygame.joystick.get_count() > 0:
         joystick = pygame.joystick.Joystick(0)
         joystick.init()
@@ -40,9 +41,11 @@ def mvt():
                 axis_z_index = i  
             if i == 4 : # Axe RZ
                 axis_rz_index = i  
+
         running = True
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect(('169.254.85.12', 12345))
+            
             while running:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
@@ -52,11 +55,14 @@ def mvt():
                    # GPIO.output(led, GPIO.HIGH)
                 #else:
                    # GPIO.output(led, GPIO.LOW) 
+                
                 pygame.event.pump() 
+
                 axis_z_value = joystick.get_axis(axis_z_index)
                 axis_x_value = joystick.get_axis(axis_x_index)
                 axis_y_value = joystick.get_axis(axis_y_index)
                 axis_rz_value = joystick.get_axis(axis_rz_index)
+                
                 if abs(axis_z_value) < 0.1:
                     axis_z_value=0.0
                 else:
