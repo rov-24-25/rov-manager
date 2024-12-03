@@ -3,10 +3,10 @@ import struct
 import time
 
 # Créer un socket UDP pour IPv6
-s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Adresse du serveur (IPv6 loopback)
-server_address = ("::1", 8080)
+server_address = ("192.168.137.245", 8080)
 
 # Données à envoyer
 data = struct.pack('f', 123.45)  # Exemple : un float

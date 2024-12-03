@@ -162,6 +162,15 @@ def mvt():
                     b = a*valeur_max_0_rz
                     axis_rz_value = (a*axis_rz_value) + b
 
+            if(abs(axis_x_value) > factor):
+                axis_x_value = factor*(abs(axis_x_value)/axis_x_value)
+            if(abs(axis_y_value) > factor):
+                axis_y_value = factor*(abs(axis_y_value)/axis_y_value)
+            if(abs(axis_z_value) > factor):
+                axis_z_value = factor*(abs(axis_z_value)/axis_z_value)
+            if(abs(axis_rz_value) > factor):
+                axis_rz_value = factor*(abs(axis_rz_value)/axis_rz_value)
+
             axis_rz_value = round(axis_rz_value, 0) #Permet d'avoir les valeur en 53.0 au lieu de 53.867875877848748
             axis_z_value = round(axis_z_value, 0)
             axis_x_value = round(axis_x_value, 0)
