@@ -6,7 +6,7 @@ import time
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Adresse du serveur (IPv6 loopback)
-server_address = ("192.168.137.245", 8080)
+server_address = ("cont_test", 80)
 
 # Données à envoyer
 data = struct.pack('f', 123.45)  # Exemple : un float
